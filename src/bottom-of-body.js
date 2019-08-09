@@ -1,8 +1,12 @@
 import './styles.scss'
 import '@fortawesome/fontawesome-free/js/all.js'
+import 'animate.css/animate.min.css'
 
 const delay = 400
 const animationTime = 1000
+
+// document.querySelectorAll('js-close-menu')
+//   .forEach()
 
 window.openMenu = () => {
   console.log('openMenu')

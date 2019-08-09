@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Menu animation</title>
+	<title>ING Responsive Menu</title>
 	<meta charset="UTF-8" />
 	<meta
 			name="viewport"
@@ -25,48 +25,51 @@
 	</div>
 
 	<div id="menu--opened" class="menu --opened">
-		<div class="header">
-			<img class="logo" src="assets/ing-logo.png" />
-			<i
-					class="icon fas fa-times fa-lg"
-					onclick="window.closeMenu()">
-			</i>
-		</div>
-		<div class="sub-header">
-			<div class="button-wrapper">
-				<button class="button outline">Hazte cliente</button>
-			</div><div class="button-wrapper">
-				<button class="button">Área clientes</button>
+		<div class="menu-swipeable-wrapper">
+			<div class="header">
+				<img class="logo" src="assets/ing-logo.png" />
+				<i
+						class="icon fas fa-times fa-lg js-close-menu"
+						onclick="window.closeMenu()">
+				</i>
 			</div>
-		</div>
-		<div class="menu-scrollable-wrapper">
-		<ul class="menu-items-wrapper">
-			<li class="menu-item">
-				 Nómina y tarjetas
-				<i class="icon fas fa-chevron-right fa-lg"></i>
-			</li>
-			<li class="menu-item">
-				 Inversión y ahorro
-				<i class="icon fas fa-chevron-right fa-lg"></i>
-			</li>
-			<li class="menu-item">
-				 Hipoteca y préstamos
-				<i class="icon fas fa-chevron-right fa-lg"></i>
-			</li>
-			<li class="menu-item">
-				 Seguros
-			</li>
-			<li class="menu-item">
-				 Pago móvil
-				<i class="icon fas fa-chevron-right fa-lg"></i>
-			</li>
-			<li class="menu-item">
-				 Twyp
-			</li>
-		</ul>
-		<div class="menu-ad">
-			<h1>Anuncio</h1>
-			<h2>La cuenta que no es cuenta</h2>
+			<div class="sub-header">
+				<div class="button-wrapper">
+					<button class="button outline">Hazte cliente</button>
+				</div><div class="button-wrapper">
+					<button class="button">Área clientes</button>
+				</div>
+			</div>
+			<div class="menu-scrollable-wrapper">
+				<ul class="menu-items-wrapper">
+					<li class="menu-item">
+						Nómina y tarjetas
+						<i class="icon fas fa-chevron-right fa-lg"></i>
+					</li>
+					<li class="menu-item">
+						Inversión y ahorro
+						<i class="icon fas fa-chevron-right fa-lg"></i>
+					</li>
+					<li class="menu-item">
+						Hipoteca y préstamos
+						<i class="icon fas fa-chevron-right fa-lg"></i>
+					</li>
+					<li class="menu-item">
+						Seguros
+					</li>
+					<li class="menu-item">
+						Pago móvil
+						<i class="icon fas fa-chevron-right fa-lg"></i>
+					</li>
+					<li class="menu-item">
+						Twyp
+					</li>
+				</ul>
+				<div class="menu-ad">
+					<h1>Anuncio</h1>
+					<h2>La cuenta que no es cuenta</h2>
+				</div>
+			</div>
 		</div>
 	</div>
 

@@ -20,7 +20,6 @@ body {
 .menu {
   min-height: $height;
   margin-left: auto;
-  //padding: $spacing;
   background: white;
   box-shadow: rgba(black, .5) 0 0 3px 0;
   
@@ -44,7 +43,6 @@ body {
   }
   
   &.--transitioning {
-    //display: none;
     display: flex;
     max-width: $width;
     justify-content: space-between;
@@ -71,14 +69,18 @@ body {
   &.--opened {
     //visibility: hidden;
     max-width: $width;
-    height: 100%;
     position: relative;
-    overflow-y: hidden;
+    height: 100%;
     opacity: 0;
     transition: opacity $animation-time / 4;
-
+    
     &.--shown {
       opacity: 100;
+    }
+    
+    .menu-swipeable-wrapper {
+      height: 100%;
+      overflow-y: hidden;
     }
 
     .header {
@@ -124,6 +126,11 @@ body {
       justify-content: space-between;
       align-items: center;
       box-sizing: border-box;
+      transition: background .3s;
+
+      &:hover {
+        background: darken(white, 10%);
+      }
 
       .icon {
         margin: 0;
@@ -155,13 +162,23 @@ body {
     color: white;
     background: $indigo;
     border: 1px solid $indigo;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     width: 100%;
+    transition: background .3s;
+    cursor: pointer;
+
+    &:hover {
+      background: darken($indigo, 10%);
+    }
 
     &.outline {
       background: white;
       color: $indigo;
+
+      &:hover {
+        background: darken(white, 10%);
+      }
     } 
   }
 }

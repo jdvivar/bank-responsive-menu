@@ -6,7 +6,7 @@ import {
   dom as iconsDom,
   config as iconsConfig
 } from '@fortawesome/fontawesome-svg-core'
-import { faMapMarkerAlt, faComments } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faComments, faHeart, faCreditCard } from '@fortawesome/free-solid-svg-icons'
 
 const delay = 400
 const animationTime = 1000
@@ -52,11 +52,12 @@ document.querySelectorAll('.js-close-menu')
   .forEach(element => element.addEventListener('click', closeMenu))
 
 // Function to animate stuff
+// Improved version from the example at
 // https://github.com/daneden/animate.css
-function animateCSS (element, animationName, callback) {
+const animateCSS = (element, animationName, callback) => {
   element.classList.add('animated', animationName)
 
-  function handleAnimationEnd () {
+  const handleAnimationEnd = () => {
     element.classList.remove('animated', animationName)
     element.removeEventListener('animationend', handleAnimationEnd)
 
@@ -84,8 +85,10 @@ document.querySelectorAll('.js-open-submenu')
 iconsConfig.autoReplaceSvg = 'nest'
 iconsLibrary.add(faMapMarkerAlt)
 iconsLibrary.add(faComments)
+iconsLibrary.add(faHeart)
+iconsLibrary.add(faCreditCard)
 iconsDom.watch()
 
 // LAST STATEMENT
-// Hiding everything until JS is loaded
+// Hiding everything until this script is loaded
 document.body.style.display = ''

@@ -26,6 +26,10 @@ $hamburger-layer-border-radius: $layer-radius;
   src: url(/assets/INGMeWeb-Regular.woff);
 }
 
+// Mixins
+@mixin border-bottom {
+  border-bottom: 1px solid lightgrey;
+}
 
 html, body {
   padding: 0;
@@ -86,7 +90,6 @@ button {
   }
   
   &.--opened {
-    //visibility: hidden;
     max-width: $width;
     position: relative;
     height: 100%;
@@ -103,6 +106,7 @@ button {
       overflow-y: hidden;
       position: absolute;
       width: 100%;
+      animation-duration: $animation-time / 2;
 
       &.--hidden {
         transform: translate3d(100%, 0, 0);
@@ -115,10 +119,18 @@ button {
       align-items: center;
       justify-content: space-between;
       height: $height;
+
+      &.--with-border {
+        @include border-bottom;
+      }
+
+      .chevron {
+        padding: $spacing;
+      }
     }
 
     .sub-header {
-      border-bottom: 1px solid lightgrey;
+      @include border-bottom;      
 
       .button-wrapper {
         display: inline-block;
@@ -139,10 +151,13 @@ button {
   }
 
   .menu-items-wrapper {
+    &:not(:last-child) {
+      @include border-bottom;
+    }
+
     list-style-type: none;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid lightgrey;
 
     .menu-item {
       color: #333;
@@ -160,11 +175,33 @@ button {
       }
 
       &.--has-icon {
-        justify-content: left;
+        display: block;
+        line-height: $height;
+        padding: 0 $spacing-items;
+        padding-left: $spacing * 2 + $spacing-items;
+        position: relative;
 
         i {
-          margin-right: $spacing-items;
           opacity: .5;
+          position: absolute;
+          left: $spacing-items;
+        }
+      }
+
+      &.--submenu {
+        font-weight: bold;
+        font-size: 22px;
+        padding: $spacing;
+        line-height: normal;
+
+        &.--has-icon {
+          padding-left: $spacing * 2 + $spacing-items;
+        }
+
+        .description {
+          margin: $spacing-items 0 0 0;
+          font-size: 18px;
+          font-weight: normal;
         }
       }
     }
@@ -224,7 +261,7 @@ button {
     } 
   }
 
-  .chevron-right {
+  .chevron {
     &::before,
     &::after {
       content: '';
@@ -234,6 +271,7 @@ button {
       background: $orange;
       position: relative;
       border-radius: $layer-radius;
+
     }
     
     $rotation: 45deg;
@@ -247,6 +285,16 @@ button {
       transform: rotate(-$rotation);
       bottom: $separation;
     }
+
+    &.--left {
+      &::before {
+        transform: rotate(-$rotation);
+      }
+      &::after {
+        transform: rotate($rotation);
+      }
+    }
+
   }
 
 }

@@ -1,10 +1,19 @@
 @import "colours";
 
+// Variables
 $spacing: 20px;
 $spacing-items: 15px;
 $height: 70px;
 $width: 500px;
 $animation-time: 1s;
+
+// Hamburgers
+$hamburger-layer-color: $orange;
+$hamburger-types: (slider);
+$hamburger-padding-x: $spacing;
+$hamburger-padding-y: $spacing;
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+
 
 html, body {
   padding: 0;
@@ -34,19 +43,13 @@ body {
     &.--hidden {
       z-index: -1;
     }
-
-    .icon {
-      position: absolute;
-      top: 4px;
-      right: 0;
-    }
   }
   
   &.--transitioning {
     display: flex;
     max-width: $width;
     justify-content: space-between;
-    clip-path: circle(0 at calc(100% - #{$spacing}) #{$spacing});
+    clip-path: circle(0 at calc(100% - #{$spacing*2}) #{$spacing});
     flex-direction: row-reverse;
     height: 100%;
     transition: clip-path $animation-time;
@@ -56,13 +59,13 @@ body {
     width: 500px;
 
     &.--shown {
+      box-shadow: none;
       clip-path: circle(200% at calc(100% - #{$spacing}) #{$spacing});
     }
 
-    .icon {
+    .hamburger {
       position: absolute;
-      top: 4px;
-      right: 0;
+      top: 1px;
     }
   }
   
@@ -131,10 +134,6 @@ body {
       &:hover {
         background: darken(white, 10%);
       }
-
-      .icon {
-        margin: 0;
-      }
     }
   }
 
@@ -149,11 +148,6 @@ body {
 
   .logo {
     max-width: 100px;
-    margin: $spacing;
-  }
-  
-  .icon {
-    color: $orange;
     margin: $spacing;
   }
 

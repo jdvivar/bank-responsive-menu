@@ -1,16 +1,17 @@
 import './styles.scss'
-import '@fortawesome/fontawesome-free/js/all.js'
 import 'animate.css/animate.min.css'
 
 const delay = 400
 const animationTime = 1000
 
-const openMenu = () => {
-  console.log('openMenu')
+const openMenu = element => {
+  console.log('open ' + element)
   const menuClosed = document.getElementById('menu--closed')
   const menuTransitioning = document.getElementById('menu--transitioning')
   const menuOpened = document.getElementById('menu--opened')
+  const hamburgers = document.querySelectorAll('.hamburger')
 
+  hamburgers.forEach(hamburger => hamburger.classList.add('is-active'))
   menuClosed.classList.toggle('--hidden')
   menuTransitioning.classList.toggle('--shown')
   setTimeout(() => {
@@ -21,12 +22,14 @@ const openMenu = () => {
 document.querySelectorAll('.js-open-menu')
   .forEach(element => element.addEventListener('click', openMenu))
   
-  const closeMenu = () => {
-    console.log('closeMenu')
+  const closeMenu = element => {
+    console.log('close ' + element)
     const menuClosed = document.getElementById('menu--closed')
     const menuTransitioning = document.getElementById('menu--transitioning')
     const menuOpened = document.getElementById('menu--opened')
-    
+    const hamburgers = document.querySelectorAll('.hamburger')
+
+    hamburgers.forEach(hamburger => hamburger.classList.remove('is-active'))
     menuOpened.classList.toggle('--shown')
     menuTransitioning.classList.toggle('--shown')
     setTimeout(() => {

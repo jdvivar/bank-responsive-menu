@@ -21,23 +21,23 @@ const openMenu = element => {
 
 document.querySelectorAll('.js-open-menu')
   .forEach(element => element.addEventListener('click', openMenu))
-  
-  const closeMenu = element => {
-    console.log('close ' + element)
-    const menuClosed = document.getElementById('menu--closed')
-    const menuTransitioning = document.getElementById('menu--transitioning')
-    const menuOpened = document.getElementById('menu--opened')
-    const hamburgers = document.querySelectorAll('.hamburger')
 
-    hamburgers.forEach(hamburger => hamburger.classList.remove('is-active'))
-    menuOpened.classList.toggle('--shown')
-    menuTransitioning.classList.toggle('--shown')
-    setTimeout(() => {
-      menuClosed.classList.toggle('--hidden')
-    }, animationTime)
-  }
+const closeMenu = element => {
+  console.log('close ' + element)
+  const menuClosed = document.getElementById('menu--closed')
+  const menuTransitioning = document.getElementById('menu--transitioning')
+  const menuOpened = document.getElementById('menu--opened')
+  const hamburgers = document.querySelectorAll('.hamburger')
+
+  hamburgers.forEach(hamburger => hamburger.classList.remove('is-active'))
+  menuOpened.classList.toggle('--shown')
+  menuTransitioning.classList.toggle('--shown')
+  setTimeout(() => {
+    menuClosed.classList.toggle('--hidden')
+  }, animationTime)
+}
 
 document.querySelectorAll('.js-close-menu')
   .forEach(element => element.addEventListener('click', closeMenu))
-  
+
 document.body.style.display = ''

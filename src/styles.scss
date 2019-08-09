@@ -6,12 +6,18 @@ $spacing-items: 15px;
 $height: 70px;
 $width: 500px;
 $animation-time: 1s;
+$layer-height: 4px;
+$layer-width: 40px;
+$layer-radius: 4px;
 
 // Hamburgers
 $hamburger-layer-color: $orange;
 $hamburger-types: (slider);
 $hamburger-padding-x: $spacing;
 $hamburger-padding-y: $spacing;
+$hamburger-layer-height: $layer-height;
+$hamburger-layer-width: $layer-width;
+$hamburger-layer-border-radius: $layer-radius;
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
 
@@ -142,7 +148,7 @@ body {
     overflow-y: scroll;
   }
 
-  .menu-ad {
+  .menu-footer {
     padding: 20px;
   }
 
@@ -175,6 +181,32 @@ body {
       }
     } 
   }
+
+  .chevron-right {
+    &::before,
+    &::after {
+      content: '';
+      width: $layer-width / 2;
+      height: $layer-height;
+      display: block;
+      background: $orange;
+      position: relative;
+      border-radius: $layer-radius;
+    }
+    
+    $rotation: 45deg;
+    $separation: -4px;
+    
+    &::before {
+      transform: rotate($rotation);
+      top: $separation;
+    }
+    &::after {
+      transform: rotate(-$rotation);
+      bottom: $separation;
+    }
+  }
+
 }
 
 

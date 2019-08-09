@@ -1,6 +1,7 @@
 {
   "name": "ing-responsive-menu",
   "version": "1.0.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/jdvivar/ing-responsive-menu.git"
@@ -33,6 +34,11 @@
   "postcss": {
     "plugins": {
       "autoprefixer": {}
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "standard"
     }
   }
 }

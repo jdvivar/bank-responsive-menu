@@ -50,7 +50,7 @@ document.querySelectorAll('.js-close-menu')
   .forEach(element => element.addEventListener('click', closeMenu))
 
 // Icons
-iconsConfig.autoReplaceSvg = 'nest';
+iconsConfig.autoReplaceSvg = 'nest'
 iconsLibrary.add(faMapMarkerAlt)
 iconsLibrary.add(faComments)
 iconsDom.watch()

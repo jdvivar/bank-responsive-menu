@@ -38,6 +38,10 @@ body {
   background: rgba(black, .05);
 }
 
+button {
+  font-family: inherit;
+}
+
 .menu {
   min-height: $height;
   margin-left: auto;

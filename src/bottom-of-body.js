@@ -5,10 +5,7 @@ import 'animate.css/animate.min.css'
 const delay = 400
 const animationTime = 1000
 
-// document.querySelectorAll('js-close-menu')
-//   .forEach()
-
-window.openMenu = () => {
+const openMenu = () => {
   console.log('openMenu')
   const menuClosed = document.getElementById('menu--closed')
   const menuTransitioning = document.getElementById('menu--transitioning')
@@ -21,17 +18,23 @@ window.openMenu = () => {
   }, delay)
 }
 
-window.closeMenu = () => {
-  console.log('closeMenu')
-  const menuClosed = document.getElementById('menu--closed')
-  const menuTransitioning = document.getElementById('menu--transitioning')
-  const menuOpened = document.getElementById('menu--opened')
+document.querySelectorAll('.js-open-menu')
+  .forEach(element => element.addEventListener('click', openMenu))
+  
+  const closeMenu = () => {
+    console.log('closeMenu')
+    const menuClosed = document.getElementById('menu--closed')
+    const menuTransitioning = document.getElementById('menu--transitioning')
+    const menuOpened = document.getElementById('menu--opened')
+    
+    menuOpened.classList.toggle('--shown')
+    menuTransitioning.classList.toggle('--shown')
+    setTimeout(() => {
+      menuClosed.classList.toggle('--hidden')
+    }, animationTime)
+  }
 
-  menuOpened.classList.toggle('--shown')
-  menuTransitioning.classList.toggle('--shown')
-  setTimeout(() => {
-    menuClosed.classList.toggle('--hidden')
-  }, animationTime)
-}
-
+document.querySelectorAll('.js-close-menu')
+  .forEach(element => element.addEventListener('click', closeMenu))
+  
 document.body.style.display = ''

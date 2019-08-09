@@ -12,8 +12,7 @@ const delay = 400
 const animationTime = 1000
 
 // Define how opening the menu works
-const openMenu = element => {
-  console.log('open ' + element)
+const openMenu = () => {
   const menuClosed = document.getElementById('menu--closed')
   const menuTransitioning = document.getElementById('menu--transitioning')
   const menuOpened = document.getElementById('menu--opened')
@@ -31,23 +30,55 @@ document.querySelectorAll('.js-open-menu')
   .forEach(element => element.addEventListener('click', openMenu))
 
 // Define how closing the menu works
-const closeMenu = element => {
-  console.log('close ' + element)
+const closeMenu = () => {
   const menuClosed = document.getElementById('menu--closed')
   const menuTransitioning = document.getElementById('menu--transitioning')
   const menuOpened = document.getElementById('menu--opened')
   const hamburgers = document.querySelectorAll('.hamburger')
+  const mainSubmenu = document.getElementById('main-submenu')
+  const otherSubmenus = document.querySelectorAll('.menu-swipeable-wrapper:not(#main-submenu)')
 
   hamburgers.forEach(hamburger => hamburger.classList.remove('is-active'))
   menuOpened.classList.toggle('--shown')
   menuTransitioning.classList.toggle('--shown')
   setTimeout(() => {
     menuClosed.classList.toggle('--hidden')
+    mainSubmenu.classList.remove('--hidden')
+    otherSubmenus.forEach(menu => menu.classList.add('--hidden'))
   }, animationTime)
 }
 
 document.querySelectorAll('.js-close-menu')
   .forEach(element => element.addEventListener('click', closeMenu))
+
+// Function to animate stuff
+// https://github.com/daneden/animate.css
+function animateCSS (element, animationName, callback) {
+  element.classList.add('animated', animationName)
+
+  function handleAnimationEnd () {
+    element.classList.remove('animated', animationName)
+    element.removeEventListener('animationend', handleAnimationEnd)
+
+    if (typeof callback === 'function') callback(element)
+  }
+
+  element.addEventListener('animationend', handleAnimationEnd)
+}
+
+// Define how opening a sub-menu works
+const openSubmenu = event => {
+  const menuToHide = event.srcElement.closest('.menu-swipeable-wrapper')
+  const menuToShow = document.getElementById(event.srcElement.dataset.submenuId)
+  const toggleHiden = element => element.classList.toggle('--hidden')
+
+  toggleHiden(menuToShow)
+  animateCSS(menuToHide, 'fadeOutLeft', toggleHiden)
+  animateCSS(menuToShow, 'fadeInRight')
+}
+
+document.querySelectorAll('.js-open-submenu')
+  .forEach(element => element.addEventListener('click', openSubmenu))
 
 // Icons
 iconsConfig.autoReplaceSvg = 'nest'

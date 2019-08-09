@@ -30,7 +30,7 @@
 	</div>
 
 	<div id="menu--opened" class="menu --opened">
-		<div class="menu-swipeable-wrapper">
+		<div id="main-submenu" class="menu-swipeable-wrapper">
 			<div class="header">
 				<img class="logo" src="assets/ing-logo.png" />
 				<button class="hamburger hamburger--slider js-close-menu" type="button">
@@ -48,22 +48,22 @@
 			</div>
 			<div class="menu-scrollable-wrapper">
 				<ul class="menu-items-wrapper">
-					<li class="menu-item --opens-submenu">
+					<li class="menu-item js-open-submenu" data-submenu-id="nomina-y-tarjetas">
 						Nómina y tarjetas
 						<span class="chevron-right"></span>
 					</li>
-					<li class="menu-item --opens-submenu">
+					<li class="menu-item js-open-submenu">
 						Inversión y ahorro
 						<span class="chevron-right"></span>
 					</li>
-					<li class="menu-item --opens-submenu">
+					<li class="menu-item js-open-submenu">
 						Hipoteca y préstamos
 						<span class="chevron-right"></span>
 					</li>
 					<li class="menu-item">
 						Seguros
 					</li>
-					<li class="menu-item --opens-submenu">
+					<li class="menu-item js-open-submenu">
 						Pago móvil
 						<span class="chevron-right"></span>
 					</li>
@@ -85,6 +85,16 @@
 					<h1>La Cuenta NÓMINA</br>del Banco no Banco</h1>
 					<button>¡Disfrútala ya!</button>
 				</div>
+			</div>
+		</div>
+		<div id="nomina-y-tarjetas" class="menu-swipeable-wrapper --hidden">
+			<div class="header">
+				<img class="logo" src="assets/ing-logo.png" />
+				<button class="hamburger hamburger--slider js-close-menu" type="button">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</button>
 			</div>
 		</div>
 	</div>

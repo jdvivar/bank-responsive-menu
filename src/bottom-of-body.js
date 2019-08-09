@@ -1,9 +1,17 @@
 import './styles.scss'
 import 'animate.css/animate.min.css'
 
+import {
+  library as iconsLibrary,
+  dom as iconsDom,
+  config as iconsConfig
+} from '@fortawesome/fontawesome-svg-core'
+import { faMapMarkerAlt, faComments } from '@fortawesome/free-solid-svg-icons'
+
 const delay = 400
 const animationTime = 1000
 
+// Define how opening the menu works
 const openMenu = element => {
   console.log('open ' + element)
   const menuClosed = document.getElementById('menu--closed')
@@ -22,6 +30,7 @@ const openMenu = element => {
 document.querySelectorAll('.js-open-menu')
   .forEach(element => element.addEventListener('click', openMenu))
 
+// Define how closing the menu works
 const closeMenu = element => {
   console.log('close ' + element)
   const menuClosed = document.getElementById('menu--closed')
@@ -40,4 +49,12 @@ const closeMenu = element => {
 document.querySelectorAll('.js-close-menu')
   .forEach(element => element.addEventListener('click', closeMenu))
 
+// Icons
+iconsConfig.autoReplaceSvg = 'nest';
+iconsLibrary.add(faMapMarkerAlt)
+iconsLibrary.add(faComments)
+iconsDom.watch()
+
+// LAST STATEMENT
+// Hiding everything until JS is loaded
 document.body.style.display = ''

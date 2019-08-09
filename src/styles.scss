@@ -146,6 +146,15 @@ body {
       &:hover {
         background: darken(white, 10%);
       }
+
+      &.--has-icon {
+        justify-content: left;
+
+        i {
+          margin-right: $spacing-items;
+          opacity: .5;
+        }
+      }
     }
   }
 
@@ -156,10 +165,12 @@ body {
 
   .menu-footer {
     color: $orange;
-    // background: $orange;
     text-align: center;
-    // height: 100%;
-    padding: $spacing;
+    padding: $spacing * 2 $spacing;
+
+    h1 {
+      margin: 0 0 $spacing 0;
+    }
 
     button {
       background: $orange;

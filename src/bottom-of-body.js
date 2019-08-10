@@ -67,19 +67,28 @@ const animateCSS = (element, animationName, callback) => {
   element.addEventListener('animationend', handleAnimationEnd)
 }
 
-// Define how opening a sub-menu works
-const openSubmenu = event => {
+
+// Define how opening/closing a sub-menu works
+const toggleSubmenu = (event, action) => {
   const menuToHide = event.srcElement.closest('.menu-swipeable-wrapper')
   const menuToShow = document.getElementById(event.srcElement.dataset.submenuId)
+  const hideAnimation = action === 'open' ? 'fadeOutLeft' : 'fadeOutRight'
+  const showAnimation = action === 'open' ? 'fadeInRight' : 'fadeInLeft'
   const toggleHiden = element => element.classList.toggle('--hidden')
 
   toggleHiden(menuToShow)
-  animateCSS(menuToHide, 'fadeOutLeft', toggleHiden)
-  animateCSS(menuToShow, 'fadeInRight')
+  animateCSS(menuToHide, hideAnimation, toggleHiden)
+  animateCSS(menuToShow, showAnimation)
 }
+
+const openSubmenu = event => toggleSubmenu(event, 'open')
+const closeSubmenu = event => toggleSubmenu(event, 'close')
 
 document.querySelectorAll('.js-open-submenu')
   .forEach(element => element.addEventListener('click', openSubmenu))
+
+document.querySelectorAll('.js-close-submenu')
+  .forEach(element => element.addEventListener('click', closeSubmenu))
 
 // Icons
 iconsConfig.autoReplaceSvg = 'nest'

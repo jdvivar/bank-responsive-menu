@@ -195,7 +195,11 @@ button {
         line-height: normal;
 
         &.--has-icon {
-          padding-left: $spacing * 2 + $spacing-items;
+          padding-left: $spacing * 3;
+
+          i {
+            left: $spacing;
+          }
         }
 
         .description {

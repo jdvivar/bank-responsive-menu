@@ -6,7 +6,12 @@ import {
   dom as iconsDom,
   config as iconsConfig
 } from '@fortawesome/fontawesome-svg-core'
-import { faMapMarkerAlt, faComments, faHeart, faCreditCard } from '@fortawesome/free-solid-svg-icons'
+import {
+  faMapMarkerAlt,
+  faComments,
+  faHeart,
+  faCreditCard
+} from '@fortawesome/free-solid-svg-icons'
 
 const delay = 400
 const animationTime = 1000
@@ -66,7 +71,6 @@ const animateCSS = (element, animationName, callback) => {
 
   element.addEventListener('animationend', handleAnimationEnd)
 }
-
 
 // Define how opening/closing a sub-menu works
 const toggleSubmenu = (event, action) => {

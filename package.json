@@ -27,8 +27,8 @@
   },
   "keywords": [],
   "browserslist": [
-    "last 5 versions",
-    "> 1%",
+    "last 1 versions",
+    "> 0.5%",
     "IE 11"
   ],
   "postcss": {
@@ -40,5 +40,8 @@
     "hooks": {
       "pre-commit": "standard"
     }
+  },
+  "dependencies": {
+    "polyfills": "^2.1.1"
   }
 }

@@ -1,6 +1,7 @@
 import './styles.scss'
 import 'animate.css/animate.min.css'
 
+import './polyfills.js'
 import {
   library as iconsLibrary,
   dom as iconsDom,

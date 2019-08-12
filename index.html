@@ -13,124 +13,126 @@
 </head>
 
 <body style="display: none;">
-	<div id="menu__closed" class="menu __closed">
-		<img class="logo" src="assets/ing-logo.png" />
-		<button class="hamburger hamburger__slider js-open-menu" type="button">
-			<span class="hamburger-box">
-				<span class="hamburger-inner"></span>
-			</span>
-		</button>
-	</div>
-
-	<div id="menu__transitioning" class="menu __transitioning">
-		<button class="hamburger hamburger__slider" type="button">
-			<span class="hamburger-box">
-				<span class="hamburger-inner"></span>
-			</span>
-		</button>
-	</div>
-
-	<div id="menu__opened" class="menu __opened">
-		<div id="main-submenu" class="menu-swipeable-wrapper">
-			<div class="header">
-				<img class="logo" src="assets/ing-logo.png" />
-				<button class="hamburger hamburger__slider js-close-menu" type="button">
+	<nav>
+		<div id="menu__closed" class="menu __closed">
+			<img class="logo" src="assets/ing-logo.png" />
+			<button class="hamburger hamburger__slider js-open-menu" type="button">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+		</div>
+	
+		<div id="menu__transitioning" class="menu __transitioning">
+			<button class="hamburger hamburger__slider" type="button">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+		</div>
+	
+		<div id="menu__opened" class="menu __opened">
+			<div id="main-submenu" class="menu-swipeable-wrapper">
+				<div class="header">
+					<img class="logo" src="assets/ing-logo.png" />
+					<button class="hamburger hamburger__slider js-close-menu" type="button">
+							<span class="hamburger-box">
+								<span class="hamburger-inner"></span>
+							</span>
+						</button>
+				</div>
+				<div class="sub-header">
+					<div class="button-wrapper">
+						<button class="button outline">Hazte cliente</button>
+					</div><div class="button-wrapper">
+						<button class="button">Área clientes</button>
+					</div>
+				</div>
+				<div class="menu-scrollable-wrapper">
+					<ul class="menu-items-wrapper">
+						<li class="menu-item js-open-submenu" data-submenu-id="nomina-y-tarjetas">
+							Nómina y tarjetas
+							<span class="chevron __right"></span>
+						</li>
+						<li class="menu-item js-open-submenu">
+							Inversión y ahorro
+							<span class="chevron __right"></span>
+						</li>
+						<li class="menu-item js-open-submenu">
+							Hipoteca y préstamos
+							<span class="chevron __right"></span>
+						</li>
+						<li class="menu-item">
+							Seguros
+						</li>
+						<li class="menu-item js-open-submenu">
+							Pago móvil
+							<span class="chevron __right"></span>
+						</li>
+						<li class="menu-item">
+							Twyp
+						</li>
+					</ul>
+					<ul class="menu-items-wrapper">
+						<li class="menu-item __has-icon">
+							<i class="fas fa-map-marker-alt"></i>
+							Oficinas y cajeros
+						</li>
+						<li class="menu-item __has-icon">
+							<i class="fas fa-comments"></i>
+							Contáctanos
+						</li>
+					</ul>
+					<div class="menu-footer">
+						<h1>La Cuenta NÓMINA</br>del Banco no Banco</h1>
+						<button>¡Disfrútala ya!</button>
+					</div>
+				</div>
+			</div>
+			<div id="nomina-y-tarjetas" class="menu-swipeable-wrapper __hidden">
+				<div class="header __with-border">
+					<span class="chevron __left js-close-submenu" data-submenu-id="main-submenu">
+					</span>
+					<button class="hamburger hamburger__slider js-close-menu" type="button">
 						<span class="hamburger-box">
 							<span class="hamburger-inner"></span>
 						</span>
 					</button>
-			</div>
-			<div class="sub-header">
-				<div class="button-wrapper">
-					<button class="button outline">Hazte cliente</button>
-				</div><div class="button-wrapper">
-					<button class="button">Área clientes</button>
 				</div>
-			</div>
-			<div class="menu-scrollable-wrapper">
-				<ul class="menu-items-wrapper">
-					<li class="menu-item js-open-submenu" data-submenu-id="nomina-y-tarjetas">
-						Nómina y tarjetas
-						<span class="chevron __right"></span>
-					</li>
-					<li class="menu-item js-open-submenu">
-						Inversión y ahorro
-						<span class="chevron __right"></span>
-					</li>
-					<li class="menu-item js-open-submenu">
-						Hipoteca y préstamos
-						<span class="chevron __right"></span>
-					</li>
-					<li class="menu-item">
-						Seguros
-					</li>
-					<li class="menu-item js-open-submenu">
-						Pago móvil
-						<span class="chevron __right"></span>
-					</li>
-					<li class="menu-item">
-						Twyp
-					</li>
-				</ul>
-				<ul class="menu-items-wrapper">
-					<li class="menu-item __has-icon">
-						<i class="fas fa-map-marker-alt"></i>
-						Oficinas y cajeros
-					</li>
-					<li class="menu-item __has-icon">
-						<i class="fas fa-comments"></i>
-						Contáctanos
-					</li>
-				</ul>
-				<div class="menu-footer">
-					<h1>La Cuenta NÓMINA</br>del Banco no Banco</h1>
-					<button>¡Disfrútala ya!</button>
+				<div class="menu-scrollable-wrapper">
+					<ul class="menu-items-wrapper">
+						<li class="menu-item __submenu">
+							Ver todo Nómina y tarjetas
+						</li>
+					</ul>
+					<ul class="menu-items-wrapper">
+						<li class="menu-item __submenu __has-icon">
+							<i class="fas fa-heart"></i>
+							Cuenta NÓMINA
+							<p class="description">
+								La cuenta corriente sin comisiones, con o sin nómina
+							</p>
+						</li>
+						<li class="menu-item __submenu __has-icon">
+								<i class="fas fa-credit-card"></i>
+							Tarjetas
+							<p class="description">
+								Las tarjetas de ING tienen cero comisiones
+							</p>
+						</li>
+					</ul>
+					<ul class="menu-items-wrapper">
+						<li class="menu-item __submenu">
+							Cambio de moneda
+						</li>
+						<li class="menu-item __submenu">
+							Shopping NARANJA
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-		<div id="nomina-y-tarjetas" class="menu-swipeable-wrapper __hidden">
-			<div class="header __with-border">
-				<span class="chevron __left js-close-submenu" data-submenu-id="main-submenu">
-				</span>
-				<button class="hamburger hamburger__slider js-close-menu" type="button">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
-				</button>
-			</div>
-			<div class="menu-scrollable-wrapper">
-				<ul class="menu-items-wrapper">
-					<li class="menu-item __submenu">
-						Ver todo Nómina y tarjetas
-					</li>
-				</ul>
-				<ul class="menu-items-wrapper">
-					<li class="menu-item __submenu __has-icon">
-						<i class="fas fa-heart"></i>
-						Cuenta NÓMINA
-						<p class="description">
-							La cuenta corriente sin comisiones, con o sin nómina
-						</p>
-					</li>
-					<li class="menu-item __submenu __has-icon">
-							<i class="fas fa-credit-card"></i>
-						Tarjetas
-						<p class="description">
-							Las tarjetas de ING tienen cero comisiones
-						</p>
-					</li>
-				</ul>
-				<ul class="menu-items-wrapper">
-					<li class="menu-item __submenu">
-						Cambio de moneda
-					</li>
-					<li class="menu-item __submenu">
-						Shopping NARANJA
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	</nav>
 
 	<script src="src/bottom-of-body.js"></script>
 </body>

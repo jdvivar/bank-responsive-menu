@@ -46,6 +46,10 @@ button {
   font-family: inherit;
 }
 
+nav {
+  height: 100%;
+}
+
 .menu {
   min-height: $height;
   margin-left: auto;
@@ -212,8 +216,12 @@ button {
   }
 
   .menu-scrollable-wrapper {
+    height: calc(100% - #{$height});
+    overflow-y: auto;
+  }
+  
+  #main-submenu .menu-scrollable-wrapper {
     height: calc(100% - #{$height} * 2 + #{$spacing} / 4);
-    overflow-y: scroll;
   }
 
   .menu-footer {

@@ -19,17 +19,17 @@ const animationTime = 1000
 
 // Define how opening the menu works
 const openMenu = () => {
-  const menuClosed = document.getElementById('menu--closed')
-  const menuTransitioning = document.getElementById('menu--transitioning')
-  const menuOpened = document.getElementById('menu--opened')
+  const menuClosed = document.getElementById('menu__closed')
+  const menuTransitioning = document.getElementById('menu__transitioning')
+  const menuOpened = document.getElementById('menu__opened')
   const hamburgers = document.querySelectorAll('.hamburger')
 
   hamburgers.forEach(hamburger => hamburger.classList.add('is-active'))
-  menuClosed.classList.toggle('--hidden')
-  menuTransitioning.classList.toggle('--shown')
+  menuClosed.classList.toggle('__hidden')
+  menuTransitioning.classList.toggle('__shown')
   setTimeout(() => {
-    menuOpened.classList.toggle('--shown')
-  }, delay)
+    menuOpened.classList.toggle('__shown')
+  }, window.isIE ? 0 : delay)
 }
 
 document.querySelectorAll('.js-open-menu')
@@ -37,20 +37,20 @@ document.querySelectorAll('.js-open-menu')
 
 // Define how closing the menu works
 const closeMenu = () => {
-  const menuClosed = document.getElementById('menu--closed')
-  const menuTransitioning = document.getElementById('menu--transitioning')
-  const menuOpened = document.getElementById('menu--opened')
+  const menuClosed = document.getElementById('menu__closed')
+  const menuTransitioning = document.getElementById('menu__transitioning')
+  const menuOpened = document.getElementById('menu__opened')
   const hamburgers = document.querySelectorAll('.hamburger')
   const mainSubmenu = document.getElementById('main-submenu')
   const otherSubmenus = document.querySelectorAll('.menu-swipeable-wrapper:not(#main-submenu)')
 
   hamburgers.forEach(hamburger => hamburger.classList.remove('is-active'))
-  menuOpened.classList.toggle('--shown')
-  menuTransitioning.classList.toggle('--shown')
+  menuOpened.classList.toggle('__shown')
+  menuTransitioning.classList.toggle('__shown')
   setTimeout(() => {
-    menuClosed.classList.toggle('--hidden')
-    mainSubmenu.classList.remove('--hidden')
-    otherSubmenus.forEach(menu => menu.classList.add('--hidden'))
+    menuClosed.classList.toggle('__hidden')
+    mainSubmenu.classList.remove('__hidden')
+    otherSubmenus.forEach(menu => menu.classList.add('__hidden'))
   }, animationTime)
 }
 
@@ -71,6 +71,10 @@ const animateCSS = (element, animationName, callback) => {
   }
 
   element.addEventListener('animationend', handleAnimationEnd)
+
+  if (window.isIE) {
+    setTimeout(handleAnimationEnd)
+  }
 }
 
 // Define how opening/closing a sub-menu works
@@ -79,7 +83,7 @@ const toggleSubmenu = (event, action) => {
   const menuToShow = document.getElementById(event.srcElement.dataset.submenuId)
   const hideAnimation = action === 'open' ? 'fadeOutLeft' : 'fadeOutRight'
   const showAnimation = action === 'open' ? 'fadeInRight' : 'fadeInLeft'
-  const toggleHiden = element => element.classList.toggle('--hidden')
+  const toggleHiden = element => element.classList.toggle('__hidden')
 
   toggleHiden(menuToShow)
   animateCSS(menuToHide, hideAnimation, toggleHiden)

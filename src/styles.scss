@@ -52,7 +52,7 @@ button {
   background: white;
   box-shadow: rgba(black, .5) 0 0 3px 0;
   
-  &.--closed {
+  &.__closed {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,12 +60,12 @@ button {
     width: 100%;
     z-index: 1;
     
-    &.--hidden {
+    &.__hidden {
       z-index: -1;
     }
   }
   
-  &.--transitioning {
+  &.__transitioning {
     display: flex;
     max-width: $width;
     justify-content: space-between;
@@ -78,7 +78,7 @@ button {
     right: 0;
     width: 500px;
 
-    &.--shown {
+    &.__shown {
       box-shadow: none;
       clip-path: circle(200% at calc(100% - #{$spacing}) #{$spacing});
     }
@@ -89,14 +89,14 @@ button {
     }
   }
   
-  &.--opened {
+  &.__opened {
     max-width: $width;
     position: relative;
     height: 100%;
     opacity: 0;
     transition: opacity $animation-time / 4;
     
-    &.--shown {
+    &.__shown {
       opacity: 100;
     }
     
@@ -108,7 +108,7 @@ button {
       width: 100%;
       animation-duration: $animation-time / 2;
 
-      &.--hidden {
+      &.__hidden {
         transform: translate3d(100%, 0, 0);
         display: none;
       }
@@ -120,7 +120,7 @@ button {
       justify-content: space-between;
       height: $height;
 
-      &.--with-border {
+      &.__with-border {
         @include border-bottom;
       }
 
@@ -174,7 +174,7 @@ button {
         background: darken(white, 10%);
       }
 
-      &.--has-icon {
+      &.__has-icon {
         display: block;
         line-height: $height;
         padding: 0 $spacing-items;
@@ -188,13 +188,13 @@ button {
         }
       }
 
-      &.--submenu {
+      &.__submenu {
         font-weight: bold;
         font-size: 22px;
         padding: $spacing;
         line-height: normal;
 
-        &.--has-icon {
+        &.__has-icon {
           padding-left: $spacing * 3;
 
           i {
@@ -290,7 +290,7 @@ button {
       bottom: $separation;
     }
 
-    &.--left {
+    &.__left {
       &::before {
         transform: rotate(-$rotation);
       }
@@ -303,5 +303,5 @@ button {
 
 }
 
-
-
+// At the end to override any style defined before
+@import "styles-for-IE11";

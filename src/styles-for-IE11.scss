@@ -1,0 +1,12 @@
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+  /* IE11 specific styles */ 
+  
+  .menu {
+    border: 1px solid lightgrey;
+    box-sizing: border-box;
+
+    &.__transitioning {
+      display: none;
+    }
+  }
+}

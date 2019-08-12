@@ -22,6 +22,7 @@
     "hamburgers": "1.1.3",
     "husky": "3.0.3",
     "parcel-bundler": "1.12.3",
+    "parcel-plugin-goodie-bag": "^2.0.0",
     "sass": "1.22.9",
     "standard": "13.1.0"
   },

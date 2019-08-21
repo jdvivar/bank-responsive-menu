@@ -16,20 +16,28 @@ import {
 
 const delay = 400
 const animationTime = 1000
+let isClosed = true
 
 // Define how opening the menu works
 const openMenu = () => {
-  const menuClosed = document.getElementById('menu__closed')
-  const menuTransitioning = document.getElementById('menu__transitioning')
-  const menuOpened = document.getElementById('menu__opened')
-  const hamburgers = document.querySelectorAll('.hamburger')
+  if (isClosed) {
+    isClosed = false
+    const menuClosed = document.getElementById('menu__closed')
+    const menuTransitioning = document.getElementById('menu__transitioning')
+    const menuOpened = document.getElementById('menu__opened')
+    const hamburgers = document.querySelectorAll('.hamburger')
+    const backdrop = document.getElementById('backdrop')
+    const nav = document.getElementById('nav')
 
-  hamburgers.forEach(hamburger => hamburger.classList.add('is-active'))
-  menuClosed.classList.toggle('__hidden')
-  menuTransitioning.classList.toggle('__shown')
-  setTimeout(() => {
-    menuOpened.classList.toggle('__shown')
-  }, window.isIE ? 0 : delay)
+    nav.classList.add('__opened')
+    backdrop.classList.add('__shown')
+    hamburgers.forEach(hamburger => hamburger.classList.add('is-active'))
+    menuClosed.classList.toggle('__hidden')
+    menuTransitioning.classList.toggle('__shown')
+    setTimeout(() => {
+      menuOpened.classList.toggle('__shown')
+    }, window.isIE ? 0 : delay)
+  }
 }
 
 document.querySelectorAll('.js-open-menu')
@@ -37,21 +45,28 @@ document.querySelectorAll('.js-open-menu')
 
 // Define how closing the menu works
 const closeMenu = () => {
-  const menuClosed = document.getElementById('menu__closed')
-  const menuTransitioning = document.getElementById('menu__transitioning')
-  const menuOpened = document.getElementById('menu__opened')
-  const hamburgers = document.querySelectorAll('.hamburger')
-  const mainSubmenu = document.getElementById('main-submenu')
-  const otherSubmenus = document.querySelectorAll('.menu-swipeable-wrapper:not(#main-submenu)')
+  if (!isClosed) {
+    isClosed = true
+    const menuClosed = document.getElementById('menu__closed')
+    const menuTransitioning = document.getElementById('menu__transitioning')
+    const menuOpened = document.getElementById('menu__opened')
+    const hamburgers = document.querySelectorAll('.hamburger')
+    const mainSubmenu = document.getElementById('main-submenu')
+    const otherSubmenus = document.querySelectorAll('.menu-swipeable-wrapper:not(#main-submenu)')
+    const backdrop = document.getElementById('backdrop')
+    const nav = document.getElementById('nav')
 
-  hamburgers.forEach(hamburger => hamburger.classList.remove('is-active'))
-  menuOpened.classList.toggle('__shown')
-  menuTransitioning.classList.toggle('__shown')
-  setTimeout(() => {
-    menuClosed.classList.toggle('__hidden')
-    mainSubmenu.classList.remove('__hidden')
-    otherSubmenus.forEach(menu => menu.classList.add('__hidden'))
-  }, animationTime)
+    backdrop.classList.remove('__shown')
+    hamburgers.forEach(hamburger => hamburger.classList.remove('is-active'))
+    menuOpened.classList.toggle('__shown')
+    menuTransitioning.classList.toggle('__shown')
+    setTimeout(() => {
+      menuClosed.classList.toggle('__hidden')
+      mainSubmenu.classList.remove('__hidden')
+      otherSubmenus.forEach(menu => menu.classList.add('__hidden'))
+      nav.classList.remove('__opened')
+    }, animationTime)
+  }
 }
 
 document.querySelectorAll('.js-close-menu')
@@ -98,6 +113,13 @@ document.querySelectorAll('.js-open-submenu')
 
 document.querySelectorAll('.js-close-submenu')
   .forEach(element => element.addEventListener('click', closeSubmenu))
+
+// Close menu when ESC key is pressed
+document.addEventListener('keydown', ({ key }) => {
+  if (key === 'Escape') {
+    closeMenu()
+  }
+})
 
 // Icons
 iconsConfig.autoReplaceSvg = 'nest'

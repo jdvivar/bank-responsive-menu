@@ -39,6 +39,7 @@ html, body {
 }
 
 body {
+  height: calc(100% - #{$height});
   background: rgba(black, .05);
 }
 
@@ -51,17 +52,38 @@ nav {
   position: absolute;
   width: 100%;
   top: 0;
+  z-index: -1;
+
+  &.__opened {
+    z-index: 1;
+  }
 }
 
 .content {
   margin-top: $height;
-  height: calc(100% - #{$height});
+  position: relative;
 
   .notice {
     border: 1px solid gray;
     width: 300px;
     text-align: center;
-    margin: 100px auto 0 auto;
+    top: 100px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+#backdrop {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: black;
+  opacity: 0;
+  transition: opacity $animation-time;
+
+  &.__shown {
+    opacity: 0.5;
+    // display: block;
   }
 }
 

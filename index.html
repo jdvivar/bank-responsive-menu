@@ -13,7 +13,7 @@
 </head>
 
 <body style="display: none;">
-	<nav>
+	<nav id="nav">
 		<div id="menu__closed" class="menu __closed">
 			<img alt="Logo del banco" class="logo" src="assets/bank-logo.png" />
 			<button
@@ -27,6 +27,8 @@
 				</span>
 			</button>
 		</div>
+
+		<div id="backdrop" class="js-close-menu"></div>
 	
 		<div id="menu__transitioning" class="menu __transitioning">
 			<button class="hamburger hamburger--slider" type="button" role="presentation" aria-hidden="true">
@@ -155,7 +157,7 @@
 	</nav>
 
 	<div class="content">
-		<div class="notice">
+		<div class="notice" onclick="console.log('click on notice')">
 			<p>Responsive menu demo</p>
 		</div>
 	</div>

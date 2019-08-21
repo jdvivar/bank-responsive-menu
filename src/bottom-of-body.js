@@ -11,7 +11,12 @@ import {
   faMapMarkerAlt,
   faComments,
   faHeart,
-  faCreditCard
+  faCreditCard,
+  faChartLine,
+  faUmbrellaBeach,
+  faUniversity,
+  faWallet,
+  faPiggyBank
 } from '@fortawesome/free-solid-svg-icons'
 
 const delay = 400
@@ -127,6 +132,11 @@ iconsLibrary.add(faMapMarkerAlt)
 iconsLibrary.add(faComments)
 iconsLibrary.add(faHeart)
 iconsLibrary.add(faCreditCard)
+iconsLibrary.add(faChartLine)
+iconsLibrary.add(faUmbrellaBeach)
+iconsLibrary.add(faUniversity)
+iconsLibrary.add(faWallet)
+iconsLibrary.add(faPiggyBank)
 iconsDom.watch()
 
 // LAST STATEMENT

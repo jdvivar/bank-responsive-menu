@@ -48,6 +48,21 @@ button {
 
 nav {
   height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.content {
+  margin-top: $height;
+  height: calc(100% - #{$height});
+
+  .notice {
+    border: 1px solid gray;
+    width: 300px;
+    text-align: center;
+    margin: 100px auto 0 auto;
+  }
 }
 
 .menu {

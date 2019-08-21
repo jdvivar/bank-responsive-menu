@@ -1,10 +1,10 @@
 {
-  "name": "ing-responsive-menu",
+  "name": "bank-responsive-menu",
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jdvivar/ing-responsive-menu.git"
+    "url": "https://github.com/jdvivar/bank-responsive-menu.git"
   },
   "description": "",
   "main": "index.html",
